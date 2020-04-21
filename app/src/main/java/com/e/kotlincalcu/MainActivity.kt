@@ -2,7 +2,6 @@ package com.e.kotlincalcu
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
 import net.objecthunter.exp4j.ExpressionBuilder
@@ -10,7 +9,6 @@ import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
 
-    private val TAG = "MainActivity"
     private val savable = Bundle()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,6 +52,7 @@ class MainActivity : AppCompatActivity() {
             tvResult.text = ""
         }
 
+        //Equal
         btnEqual.setOnClickListener {
             try {
                 val expression = ExpressionBuilder(tvExpression.text.toString()).build()
@@ -68,10 +67,7 @@ class MainActivity : AppCompatActivity() {
                 Log.d("Exception","Message : " + e.message)
             }
         }
-
-
     }
-
 
     private fun appendOnExpression(string: String, canClear: Boolean){
         if(tvResult.text.isNotEmpty()){
@@ -86,7 +82,6 @@ class MainActivity : AppCompatActivity() {
             tvResult.text = ""
         }
     }
-
 }
 
 
